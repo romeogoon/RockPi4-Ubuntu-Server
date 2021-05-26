@@ -1,0 +1,85 @@
+# Rock Pi 4 - Ubuntu 18.04
+
+
+---------------------------------------------
+# Radxa APT is the Debian package repository
+---------------------------------------------
+   $ sudo apt-get install wget
+
+   - Bionic
+   $ wget -O -  apt.radxa.com/bionic/public.key | sudo apt-key add -
+
+
+---------------------------------------------
+# Update & Upgrade
+---------------------------------------------
+   $ sudo apt-get -y update && sudo apt-get upgrade && sudo apt-get dist-upgrade
+
+
+---------------------------------------------
+# Unminimize the system
+---------------------------------------------
+   $ sudo unminimize
+
+
+---------------------------------------------
+# Date Time & Local configuration
+---------------------------------------------
+   $ sudo dpkg-reconfigure locales
+   $ sudo dpkg-reconfigure tzdata
+
+
+---------------------------------------------
+# Libmraa-rockpi4
+---------------------------------------------
+   $ sudo apt-get install -y rockchip-overlay rockchip-fstab && sudo apt-get install -y rockpi4-dtbo
+
+
+---------------------------------------------
+# Install all the recommended packages
+---------------------------------------------
+   $ sudo apt-get update && sudo apt-get upgrade
+   $ sudo apt-get install build-essential
+   $ sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+Recommended optional packages:
+   $ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
+   $ sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libavresample-dev
+   $ sudo apt install tesseract-ocr cmake-data liblept5
+
+
+---------------------------------------------
+# Install Docker compose for rock pi
+---------------------------------------------
+   $ sudo apt-get install libffi-dev libssl-dev
+   $ sudo apt install python3-dev -y
+   $ sudo apt-get install -y python3 python3-pip
+   $ sudo pip3 install docker-compose
+   $ sudo usermod -aG docker ${USER}
+   $ sudo systemctl enable docker
+
+
+---------------------------------------------
+# Fix "Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings"
+---------------------------------------------
+   $ sudo rm -f /var/lib/ubuntu-release-upgrader/release-upgrade-available
+
+
+---------------------------------------------
+# Enable password authentication for SSH.
+---------------------------------------------
+   $ sudo nano /etc/ssh/sshd_config
+   $ sudo systemctl reload sshd
+
+
+---------------------------------------------
+# 7zip
+---------------------------------------------
+   $ sudo apt-get install p7zip-full
+      Example: 7z x [PACKAGE-NAME].7z 
+
+
+---------------------------------------------
+# Change Owner and Group
+---------------------------------------------
+   $ sudo chown -R username:group directory
