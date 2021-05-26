@@ -68,6 +68,7 @@ Recommended optional packages:
 # Fix "Failed to connect to https://changelogs.ubuntu.com/meta-release-lts. Check your Internet connection or proxy settings"
 ---------------------------------------------
    $ sudo rm -f /var/lib/ubuntu-release-upgrader/release-upgrade-available
+   $ sudo /usr/lib/ubuntu-release-upgrader/release-upgrade-motd
 
 
 ---------------------------------------------
